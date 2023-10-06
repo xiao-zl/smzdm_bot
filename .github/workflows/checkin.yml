@@ -9,7 +9,7 @@ on:
 
   # UTC时间，对应Beijing时间 8：30
   schedule:
-    - cron: "31 08 * * *"
+    - cron: "33 00 * * *"
 
 jobs:
   run:
