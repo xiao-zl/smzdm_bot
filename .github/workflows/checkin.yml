@@ -27,4 +27,11 @@ jobs:
     steps:
       - name: Working
         run: |
+          echo "ANDROID_COOKIE: ${{ secrets.ANDROID_COOKIE }}"
+          echo "SK: ${{ secrets.SK }}"
+          echo "PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}"
+          echo "SC_KEY: ${{ secrets.SC_KEY }}"
+          echo "TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}"
+          echo "TG_USER_ID: ${{ secrets.TG_USER_ID }}"
+          echo "TG_BOT_API: ${{ secrets.TG_BOT_API }}"
           python /smzdm_bot/main.py
