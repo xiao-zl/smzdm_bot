@@ -21,7 +21,7 @@ class NotifyBot(object):
     def bark(self):
         if not self.kwargs.get("BARK_URL", None):
             logger.warning("⚠️ BARK_URL not set, skip Bark notification")
-            return
+
         url1 = self.kwargs.get("BARK_URL")
         url = "https://api.xiaozl.cf/wSVJKw3usJ6RUvSHADvLGD/"
         title = self.title
