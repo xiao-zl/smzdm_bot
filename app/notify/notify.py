@@ -21,18 +21,29 @@ class NotifyBot(object):
     def bark(self):
         if not self.kwargs.get("BARK_URL", None):
             logger.warning("⚠️ BARK_URL not set, skip Bark notification")
-
-        url1 = self.kwargs.get("BARK_URL")
-        url = "https://api.xiaozl.cf/wSVJKw3usJ6RUvSHADvLGD/"
+            return
+        url = self.kwargs.get("BARK_URL")
         title = self.title
         content = self.content
-        icon = "https://th.bing.com/th?id=ODLS.87ce106c-8c64-43b3-b73d-4ebe5c266c90&w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2"
+        headers = {
+            'Content-Type': 'application/json; charset=utf-8',
+        }
+        json_data = {
+            'body': self.content,
+            'title': self.title,
+            # 'badge': 1,
+            'category': 'myNotificationCategory',
+            'sound': 'minuet.caf',
+            'icon': 'https://res.smzdm.com/resources/public/img/pc_global/logo.svg?v=2023091316',
+            'group': 'smzdm',
+            # 'url': 'https://mritd.com',
+        }
         try:
-            resp = requests.get(f'{url}/{title}/{content}?icon={icon}&group=smzdm')
+            resp = requests.post(url, headers=headers, json=json_data)
             if resp.ok:
-                logger.info("✅ WeCom notified")
+                logger.info("✅ bark notified")
             else:
-                logger.warning("Fail to notify WeCom")
+                logger.warning("Fail to notify bark")
         except Exception as e:
             logger.error(e)
 
