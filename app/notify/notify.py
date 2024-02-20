@@ -13,10 +13,10 @@ class NotifyBot(object):
         self.kwargs = kwargs
 
         self.bark()
-        self.push_plus()
-        self.server_chain()
-        self.wecom()
-        self.tg_bot()
+        #self.push_plus()
+        #self.server_chain()
+        #self.wecom()
+        #self.tg_bot()
 
     def bark(self):
         if not self.kwargs.get("BARK_URL", None):
@@ -33,13 +33,13 @@ class NotifyBot(object):
             'title': self.title,
             # 'badge': 1,
             'category': 'myNotificationCategory',
-            'sound': 'minuet.caf',
-            'icon': 'https://res.smzdm.com/resources/public/img/pc_global/logo.svg?v=2023091316',
+            'sound': 'silence',
+            'icon': 'https://gh.xiaozl.cf/https://raw.githubusercontent.com/metowolf/vCards/master/data/%E7%94%B5%E5%95%86%E8%B4%AD%E7%89%A9/%E4%BB%80%E4%B9%88%E5%80%BC%E5%BE%97%E4%B9%B0.png',
             'group': 'smzdm',
             # 'url': 'https://mritd.com',
         }
         try:
-            resp = requests.post(url, headers=headers, json=json_data)
+            resp = requests.post(url, headers=headers, json=json_data,timeout=(10,5))
             if resp.ok:
                 logger.info("✅ bark notified")
             else:
