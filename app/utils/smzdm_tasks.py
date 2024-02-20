@@ -25,7 +25,7 @@ class SmzdmTasks:
             tb.field_names = ["签到天数", "金币", "积分", "经验", "等级", "补签卡"]
             tb.add_row([checkin_num, gold, point, exp, rank, cards])
             logger.info(f"\n{tb}")
-            msg = f"""\n⭐签到成功{checkin_num}天
+            msg = f"""⭐签到成功{checkin_num}天
             🏅金币: {gold}
             🏅积分: {point}
             🏅经验: {exp}
